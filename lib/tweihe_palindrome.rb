@@ -1,11 +1,6 @@
 require "tweihe_palindrome/version"
 
-# module TweihePalindrome
-#   class Error < StandardError; end
-#   # Your code goes here...
-# end
-
-class String
+module TweihePalindrome
 
   # Returns true for a palindrome, false otherwise.
   def palindrome?
@@ -16,6 +11,18 @@ class String
 
     # Returns content for palindrome testing.
     def processed_content
-      self.scan(/[a-z]/i).join.downcase
+      self.to_s.scan(/[a-z\d]/i).join.downcase
     end
+end
+
+class String
+
+  include TweihePalindrome
+
+end
+
+class Integer
+
+  include TweihePalindrome
+
 end
